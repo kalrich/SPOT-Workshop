@@ -104,7 +104,7 @@ class SpotRobotController:
         if self.stop_requested: return
         print(f"Moving: vx={velocity_x}, vy={velocity_y}, vrot={velocity_rot}")
         # Command to move the robot at specified velocities
-        cmd = RobotCommandBuilder.velocity_command(velocity_x, velocity_y, velocity_rot)
+        cmd = RobotCommandBuilder.synchro_velocity_command(velocity_x, velocity_y, velocity_rot)
         end_time_secs = time.time() + duration
         self.command_client.robot_command(cmd, end_time_secs=end_time_secs)
 
